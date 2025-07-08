@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  
 from pymongo import MongoClient
 from datetime import datetime
 import os
@@ -7,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)  
 
 mongo_uri = os.environ.get("MONGO_URI")
 client = MongoClient(mongo_uri)
@@ -24,8 +26,8 @@ def webhook():
         data = request.json
         event_type = request.headers.get("X-GitHub-Event")
 
-        print("🚀 Event type:", event_type)
-        print("📦 Payload:", data)
+        print(" Event type:", event_type)
+        print(" Payload:", data)
 
         if event_type == "push":
             if not data.get("head_commit"):
