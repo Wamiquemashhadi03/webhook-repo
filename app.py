@@ -13,6 +13,11 @@ client = MongoClient(mongo_uri)
 db = client["github_webhooks"]
 collection = db["events"]
 
+@app.route("/", methods=["GET"])
+def home():
+    return "GitHub Webhook Listener is running."
+
+
 @app.route("/webhook", methods=["POST"])
 def webhook():
     data = request.json
