@@ -34,7 +34,6 @@ def webhook():
             to_branch = data["ref"].split("/")[-1]
             request_id = data["head_commit"]["id"]
 
-            # ✅ FIXED TIMESTAMP PARSING
             timestamp = datetime.fromisoformat(data["head_commit"]["timestamp"])
 
             event_data = {
@@ -61,7 +60,6 @@ def webhook():
             if timestamp_raw is None:
                 return jsonify({"message": "No valid timestamp"}), 400
 
-            # ✅ FIXED TIMESTAMP PARSING
             timestamp = datetime.fromisoformat(timestamp_raw)
 
             action_type = "MERGE" if merged else "PULL_REQUEST"
@@ -82,7 +80,7 @@ def webhook():
         return jsonify({"message": "Event received"}), 200
 
     except Exception as e:
-        print("❌ Error occurred:", e)
+        print(" Error occurred:", e)
         return jsonify({"error": str(e)}), 500
 
 
