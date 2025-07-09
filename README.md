@@ -1,4 +1,3 @@
----
 
 ## 📦 webhook-repo (Backend Flask API)
 
@@ -6,8 +5,8 @@ This is the **backend server** that listens for GitHub Webhook events (push, pul
 
 ### 🔗 Live API Endpoint
 
-* [`https://webhook-repo-three.vercel.app/events`](https://webhook-repo-three.vercel.app/events)
-  — Returns the latest 10 GitHub events in JSON format.
+* ["Returns the latest GitHub events in JSON format."](https://webhook-repo-three.vercel.app/events)
+  
 
 ---
 
